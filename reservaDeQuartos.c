@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <locale.h>
 
 // Estrutura para representar um quarto
 typedef struct {
@@ -9,19 +10,23 @@ typedef struct {
 } Quarto;
 
 // Função para verificar a disponibilidade de um quarto
-bool verificarDisponibilidade(Quarto quartos[], int numQuartos, int numeroQuarto) {
-    if (numeroQuarto < 1 || numeroQuarto > numQuartos) {
-        printf("Quarto inválido.\n");
-        return false;
-    }
+// TODO - codigo alterado, copiar para o git
+void statusQuarto(Quarto quartos[], int numQuartos) {
 
-    if (quartos[numeroQuarto - 1].disponivel) {
-        printf("Quarto %d (%s) está disponível.\n", quartos[numeroQuarto - 1].numero, quartos[numeroQuarto - 1].tipo);
-        return true;
-    } else {
-        printf("Quarto %d (%s) não está disponível.\n", quartos[numeroQuarto - 1].numero, quartos[numeroQuarto - 1].tipo);
-        return false;
-    }
+        printf("\n******************************************\n");
+        printf("*****************QUARTOS******************\n");
+        printf("******************************************\n");
+
+        for (int i = 0; i < numQuartos; i++) {
+            if(quartos[i].disponivel){
+                printf("Quarto %d - %s status: Disponivel\n",(i+1),quartos[i].tipo);
+            }else{
+                printf("Quarto %d - %s status: Reservado\n",(i+1),quartos[i].tipo);
+            }
+        }
+        printf("******************************************");
+        printf("\n");
+        printf("\n");
 }
 
 // Função para reservar um quarto
@@ -37,9 +42,11 @@ void fazerReserva(Quarto quartos[], int numQuartos, int numeroQuarto) {
     } else {
         printf("O quarto %d (%s) já está reservado.\n", quartos[numeroQuarto - 1].numero, quartos[numeroQuarto - 1].tipo);
     }
+
 }
 
 int main() {
+
     int numQuartos = 3;
     Quarto quartos[3] = {
         {1, "Standard", true},
@@ -48,7 +55,7 @@ int main() {
     };
 
     while (1) {
-        printf("Escolha uma opção:\n");
+        printf("Escolha uma opcao:\n");
         printf("1. Verificar disponibilidade\n");
         printf("2. Fazer reserva\n");
         printf("3. Sair\n");
@@ -57,10 +64,8 @@ int main() {
         scanf("%d", &opcao);
 
         if (opcao == 1) {
-            int numeroQuarto;
-            printf("Digite o número do quarto: ");
-            scanf("%d", &numeroQuarto);
-            verificarDisponibilidade(quartos, numQuartos, numeroQuarto);
+            // TODO - codigo alterado, copiar para o git
+            statusQuarto(quartos, numQuartos);
         } else if (opcao == 2) {
             int numeroQuarto;
             printf("Digite o número do quarto que deseja reservar: ");
