@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
-// Estrutura para representar uma fatura
 typedef struct {
     int faturaID;
     int reservaID;
@@ -12,16 +12,17 @@ typedef struct {
     int pago;
 } Fatura;
 
-// Banco de dados de faturas (apenas para este exemplo)
+
 Fatura faturas[100];
 int totalFaturas = 0;
 
-// Função para calcular o total da fatura
+
+
 double calcularTotalFatura(double tarifaQuarto, double taxasAdicionais, double servicosExtras) {
     return tarifaQuarto + taxasAdicionais + servicosExtras;
 }
 
-// Função para gerar uma fatura
+
 void gerarFatura(int reservaID, double tarifaQuarto, double taxasAdicionais, double servicosExtras) {
     if (totalFaturas < 100) {
         Fatura novaFatura;
@@ -41,7 +42,7 @@ void gerarFatura(int reservaID, double tarifaQuarto, double taxasAdicionais, dou
     }
 }
 
-// Função para listar todas as faturas
+
 void listarFaturas() {
     printf("Lista de Faturas:\n");
     for (int i = 0; i < totalFaturas; i++) {
@@ -52,10 +53,53 @@ void listarFaturas() {
 }
 
 int main() {
+    setlocale(LC_ALL, "Portuguese");
+
     int escolha;
     while (1) {
         printf("Menu:\n");
         printf("1. Gerar fatura\n");
         printf("2. Listar faturas\n");
         printf("3. Sair\n");
-        printf("Es
+        printf("Escolha uma opção: ");
+        scanf("%d", &escolha);
+
+        switch (escolha) {
+            case 1:
+
+                printf("Digite o ID da reserva: ");
+                int reservaID;
+                scanf("%d", &reservaID);
+
+                printf("Digite a tarifa do quarto: ");
+                double tarifaQuarto;
+                scanf("%lf", &tarifaQuarto);
+
+                printf("Digite as taxas adicionais: ");
+                double taxasAdicionais;
+                scanf("%lf", &taxasAdicionais);
+
+                printf("Digite os serviços extras: ");
+                double servicosExtras;
+                scanf("%lf", &servicosExtras);
+
+                gerarFatura(reservaID, tarifaQuarto, taxasAdicionais, servicosExtras);
+                break;
+
+            case 2:
+
+                listarFaturas();
+                break;
+
+            case 3:
+
+                printf("Saindo...\n");
+                exit(0);
+
+            default:
+                printf("Opção inválida. Tente novamente.\n");
+        }
+    }
+
+    return 0;
+}
