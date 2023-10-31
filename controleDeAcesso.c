@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Estrutura para representar uma reserva
+
 typedef struct {
     int reservaID;
     char nomeHospede[100];
@@ -14,11 +14,11 @@ typedef struct {
     bool checkOut;
 } Reserva;
 
-// Banco de dados de reservas (apenas para este exemplo)
+
 Reserva reservas[100];
 int totalReservas = 0;
 
-// Função para realizar o check-in de um hóspede
+
 void fazerCheckIn() {
     int reservaID;
     printf("Digite o ID da reserva para check-in: ");
@@ -34,7 +34,7 @@ void fazerCheckIn() {
     printf("Reserva não encontrada.\n");
 }
 
-// Função para realizar o check-out de um hóspede
+
 void fazerCheckOut() {
     int reservaID;
     printf("Digite o ID da reserva para check-out: ");
@@ -50,7 +50,7 @@ void fazerCheckOut() {
     printf("Reserva não encontrada.\n");
 }
 
-// Função para listar todas as reservas
+
 void listarReservas() {
     printf("Lista de Reservas:\n");
     for (int i = 0; i < totalReservas; i++) {
