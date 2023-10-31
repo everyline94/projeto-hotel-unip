@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-// Estrutura para representar um quarto
+
 typedef struct {
     int numero;
     char tipo[50];
     bool disponivel;
 } Quarto;
 
-// Função para verificar a disponibilidade de um quarto
+
 bool verificarDisponibilidade(Quarto quartos[], int numQuartos, int numeroQuarto) {
     if (numeroQuarto < 1 || numeroQuarto > numQuartos) {
         printf("Quarto inválido.\n");
@@ -24,7 +24,7 @@ bool verificarDisponibilidade(Quarto quartos[], int numQuartos, int numeroQuarto
     }
 }
 
-// Função para reservar um quarto
+
 void fazerReserva(Quarto quartos[], int numQuartos, int numeroQuarto) {
     if (numeroQuarto < 1 || numeroQuarto > numQuartos) {
         printf("Quarto inválido.\n");
