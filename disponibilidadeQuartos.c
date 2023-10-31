@@ -2,34 +2,34 @@
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
-// Estrutura para representar uma tarifa de quarto
+/
 typedef struct {
     char tipo[50];
     double tarifaPadrao;
     double tarifaEspecial;
 } TarifaQuarto;
 
-// Banco de dados de tarifas de quarto (apenas para este exemplo)
+
 TarifaQuarto tarifasQuarto[3] = {
     {"Standard", 100.00, 120.00},
     {"Deluxe", 150.00, 180.00},
     {"Suite", 200.00, 240.00}
 };
 
-// Estrutura para representar a disponibilidade de quartos
+
 typedef struct {
     char tipo[50];
     int quantidadeDisponivel;
 } DisponibilidadeQuarto;
 
-// Banco de dados de disponibilidade de quartos (apenas para este exemplo)
+
 DisponibilidadeQuarto disponibilidadeQuartos[3] = {
     {"Standard", 10},
     {"Deluxe", 5},
     {"Suite", 3}
 };
 
-// Função para listar as tarifas de quartos
+
 void listarTarifas() {
 
 setlocale(LC_ALL, "Portuguese");
@@ -41,7 +41,7 @@ setlocale(LC_ALL, "Portuguese");
     }
 }
 
-// Função para listar a disponibilidade de quartos
+
 void listarDisponibilidade() {
     printf("Disponibilidade de Quartos:\n");
     for (int i = 0; i < 3; i++) {
