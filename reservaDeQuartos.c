@@ -2,15 +2,15 @@
 #include <stdbool.h>
 #include <locale.h>
 
-// Estrutura para representar um quarto
+
 typedef struct {
     int numero;
     char tipo[50];
     bool disponivel;
 } Quarto;
 
-// Função para verificar a disponibilidade de um quarto
-// TODO - codigo alterado, copiar para o git
+
+
 void statusQuarto(Quarto quartos[], int numQuartos) {
 
         printf("\n******************************************\n");
@@ -29,7 +29,7 @@ void statusQuarto(Quarto quartos[], int numQuartos) {
         printf("\n");
 }
 
-// Função para reservar um quarto
+
 void fazerReserva(Quarto quartos[], int numQuartos, int numeroQuarto) {
     if (numeroQuarto < 1 || numeroQuarto > numQuartos) {
         printf("Quarto inválido.\n");
@@ -64,7 +64,7 @@ int main() {
         scanf("%d", &opcao);
 
         if (opcao == 1) {
-            // TODO - codigo alterado, copiar para o git
+           
             statusQuarto(quartos, numQuartos);
         } else if (opcao == 2) {
             int numeroQuarto;
